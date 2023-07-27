@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: remove apache2,htop and php package
+    apt:
+      name: 
+        - apache2
+        - libapache2-mod-php
+        - htop
+      state: absent
+    when: ansible_distribution == "Ubuntu"
