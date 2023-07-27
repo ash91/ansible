@@ -1,0 +1,10 @@
+---
+
+- hosts: [appserver]
+  become: true
+  tasks:
+
+  - name: add users to server
+    user:
+      name: devil
+      groups: root
