@@ -2,9 +2,11 @@
 
 - hosts: [appserver]
   become: true
+  gather_facts: False
   tasks:
 
   - name: install apache2,htop and php package
+    tags: apache, htop,php
     apt:
       name: 
         - apache2
@@ -12,4 +14,3 @@
         - htop
       state: latest
       update_cache: yes
-    when: ansible_distribution == "Ubuntu"
