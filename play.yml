@@ -1,6 +1,6 @@
 ---
 
-- hosts: [web-server]
+- hosts: [appserver]
   become: true
   tasks:
 
