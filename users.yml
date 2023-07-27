@@ -5,6 +5,7 @@
   tasks:
 
   - name: add users to server
+    tags: always
     user:
       name: devil
       groups: root
