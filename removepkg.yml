@@ -1,14 +1,22 @@
 ---
-
 - hosts: all
   become: true
   tasks:
-
-  - name: remove apache2,htop and php package
-    apt:
-      name: 
-        - apache2
-        - libapache2-mod-php
-        - htop
-      state: absent
-    when: ansible_distribution == "Ubuntu"
+    - name: Remove the Apache, nginx, postgresql package
+      apt:
+        name:
+          - apache2
+          - nginx
+          - postgresql
+          - postgresql-server
+        state: absent
+      when: ansible_distribution == "Ubuntu"
+    - name: Remove the Apache, nginx, postgresql package
+      ansible.builtin.yum:
+        name:
+          - httpd
+          - nginx
+          - postgresql
+          - postgresql-server
+        state: absent
+      when: ansible_distribution == "Fedora"
