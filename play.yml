@@ -3,12 +3,14 @@
   become: true
   gather_facts: False
   tasks:
-    - name: install apache2 and php package
-      tags: apache, htop,php
+    - name: install apache2, nginx & postgresql
+      tags: apache, nginx, postgresql, postgres
       apt:
         name:
           - apache2
-          - libapache2-mod-php
+          - nginx
+          - postgresql
+          - postgresql-server
           - unzip
         state: latest
         update_cache: yes
@@ -28,3 +30,18 @@
         mode: 0755
         owner: root
         group: root
+---
+- hosts: [webapp]
+  become: true
+  gather_facts: False
+  tasks:
+    - name: install apache, nginx & postgresql
+      tags: httpd, nginx, postgres, postgresql
+      yum:
+        name:
+          - httpd
+          - nginx
+          - postgresql
+          - postgresql-server
+        state: latest
+        update_cache: yes
