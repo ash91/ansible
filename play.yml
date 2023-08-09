@@ -3,12 +3,11 @@
   become: true
   gather_facts: False
   tasks:
-    - name: install apache2, nginx & postgresql
+    - name: install apache2 & postgresql
       tags: apache, nginx, postgresql
       apt:
         name:
           - apache2
-          - nginx
           - postgresql
           - unzip
         state: latest
@@ -34,12 +33,11 @@
   become: true
   gather_facts: False
   tasks:
-    - name: install apache, nginx & postgresql
+    - name: install apache, & postgresql
       tags: httpd, nginx, postgres, postgresql
       yum:
         name:
           - httpd
-          - nginx
           - postgresql
           - postgresql-server
         state: latest
