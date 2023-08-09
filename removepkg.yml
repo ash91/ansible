@@ -10,7 +10,7 @@
         state: absent
       #when: ansible_distribution == "Ubuntu"
     - name: Remove the Apache, postgresql package
-      dnf:
+      dnf5:
         name:
           - httpd
           - postgresql
