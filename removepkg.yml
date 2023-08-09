@@ -8,7 +8,6 @@
           - apache2
           - nginx
           - postgresql
-          - postgresql-server
         state: absent
       when: ansible_distribution == "Ubuntu"
     - name: Remove the Apache, nginx, postgresql package
