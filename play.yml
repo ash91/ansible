@@ -46,6 +46,5 @@
         update_cache: yes
     - name: Start service httpd, if not started
       ansible.builtin.service:
-        name:
-          - httpd
+        name: httpd
         state: started
