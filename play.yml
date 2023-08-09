@@ -39,7 +39,6 @@
         name:
           - httpd
           - postgresql
-          - postgresql-server
         state: latest
         update_cache: yes
     - name: Start service httpd, if not started
