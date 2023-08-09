@@ -2,11 +2,10 @@
 - hosts: all
   become: true
   tasks:
-    - name: Remove the Apache, nginx, postgresql package
+    - name: Remove the Apache, postgresql package
       apt:
         name:
           - apache2
-          - nginx
           - postgresql
         state: absent
       when: ansible_distribution == "Ubuntu"
@@ -14,7 +13,6 @@
       ansible.builtin.yum:
         name:
           - httpd
-          - nginx
           - postgresql
           - postgresql-server
         state: absent
