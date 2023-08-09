@@ -8,7 +8,7 @@
           - apache2
           - postgresql
         state: absent
-      when: ansible_distribution == "Ubuntu"
+      #when: ansible_distribution == "Ubuntu"
     - name: Remove the Apache, postgresql package
       dnf:
         name:
@@ -16,4 +16,4 @@
           - postgresql
           - postgresql-server
         state: absent
-      when: ansible_distribution == "Fedora"
+      #when: ansible_distribution == "Fedora"
