@@ -1,11 +1,9 @@
 ---
-
-- hosts: [appserver]
+- hosts: all
   become: true
   tasks:
-
-  - name: add users to server
-    tags: always
-    user:
-      name: devil
-      groups: root
+    - name: add users to server
+      tags: always
+      user:
+        name: ansible
+        groups: root
