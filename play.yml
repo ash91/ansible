@@ -4,7 +4,7 @@
   gather_facts: False
   tasks:
     - name: install apache2 & postgresql
-      tags: apache, nginx, postgresql
+      tags: apache, postgresql
       apt:
         name:
           - apache2
@@ -34,7 +34,7 @@
   gather_facts: False
   tasks:
     - name: install apache, & postgresql
-      tags: httpd, nginx, postgres, postgresql
+      tags: httpd, postgres, postgresql
       yum:
         name:
           - httpd
