@@ -48,5 +48,4 @@
       ansible.builtin.service:
         name:
           - httpd
-          - nginx
         state: started
