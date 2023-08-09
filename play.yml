@@ -35,7 +35,7 @@
   tasks:
     - name: install apache, & postgresql
       tags: httpd, postgres, postgresql
-      yum:
+      ansible.builtin.dnf:
         name:
           - httpd
           - postgresql
@@ -46,11 +46,11 @@
       ansible.builtin.service:
         name: httpd
         state: started
-    # - name: default html page
-    #   tags: apache,html,index
-    #   copy:
-    #     src: index.html
-    #     dest: /var/www/html/index.html
-    #     owner: root
-    #     group: root
-    #     mode: 0644
+    - name: default html page
+      tags: apache,html,index
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: 0644
