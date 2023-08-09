@@ -4,13 +4,12 @@
   gather_facts: False
   tasks:
     - name: install apache2, nginx & postgresql
-      tags: apache, nginx, postgresql, postgres
+      tags: apache, nginx, postgresql
       apt:
         name:
           - apache2
           - nginx
           - postgresql
-          - postgresql-server
           - unzip
         state: latest
         update_cache: yes
@@ -30,7 +29,7 @@
         mode: 0755
         owner: root
         group: root
----
+
 - hosts: [webapp]
   become: true
   gather_facts: False
@@ -47,5 +46,7 @@
         update_cache: yes
     - name: Start service httpd, if not started
       ansible.builtin.service:
-        name: httpd
+        name:
+          - httpd
+          - nginx
         state: started
