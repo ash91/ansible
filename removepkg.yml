@@ -14,6 +14,5 @@
         name:
           - httpd
           - postgresql
-          - postgresql-server
         state: absent
       when: ansible_distribution == "Fedora"
